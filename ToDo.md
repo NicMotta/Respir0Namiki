@@ -20,15 +20,16 @@
     - MURU7.8 
       - Quienes somos
 - Ingresar desde QR
-- Mobile First (COMPLETO)
-- Navegación 2D + info (COMPLETO)
+- *Mobile First (COMPLETO)*
+- *Navegación 2D + info (COMPLETO)*
+- Incorporar MQTT
 - Atmosfera 
   - Referencias de contaminación
     - Valores bajos, medios y altos 
 - Nodos
   - No clickeado
-    - Ubicación (COMPLETO)
-    - Nombre dueño (COMPLETO)
+    - *Ubicación (COMPLETO)*
+    - *Nombre dueño (COMPLETO)*
     - Data sensor
     - Fecha del ultimo dato recibido
   - Click
