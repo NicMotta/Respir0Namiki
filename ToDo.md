@@ -1,5 +1,5 @@
-# Lista TO DO para Respir0 Namiki
-## Web - Entorno digital
+# Hoja de ruta - desarrollo web - entorno digital
+### Nic Motta
 
 - Lavado de cara a pagina MURU7.8 
 - Iconos para menú
