@@ -1,33 +1,31 @@
 # Lista TO DO para Respir0 Namiki
 ## Web - Entorno digital
 
-- [ ] Lavado de cara a pagina MURU7.8
-- [ ] Iconos para menú
-  - [ ] - [ ] Cruz - rosa de los vientos (N, S, E, W) 
-    - [ ] Tienda
-    - [ ] Mapa general (tipo Google Maps para ubicacion geográfica)
-    - [ ] Visualización de datos
+- Lavado de cara a pagina MURU7.8 
+- Iconos para menú
+  - Cruz - Rosa de los vientos (N, S, E, W) 
+    - Tienda
+    - Mapa general (tipo Google Maps para ubicacion geográfica)
+    - Visualización de datos
       - Gráfico de cada sensor en tiempo y valor
-    - [ ] Mapa conceptual
-      -  Ideas base
-      -  Descripción de la atmosfera
-      -  Génesis de cada nodo
-          -  Origen
-          -  Sensado
-     - [ ] Instructivo de armado
-        - Armado 
-        - Desarmado - paso a paso
-    - [ ] MURU7.8 
+    - Mapa conceptual
+      - Ideas base
+      - Descripción de la atmosfera
+      - Génesis de cada nodo
+          - Origen
+          - Sensado
+    - Instructivo de armado
+      - Armado 
+      - Desarmado - paso a paso
+    - MURU7.8 
       - Quienes somos
-- 
-
-- [ ] Ingresar desde QR
-- [ ] Mobile First
-- [x] Navegación 2D + info
-- [ ] Atmosfera 
+- Ingresar desde QR
+- Mobile First
+- Navegación 2D + info
+- Atmosfera 
   - Referencias de contaminación
     - Valores bajos, medios y altos 
-- [ ] Nodos
+- Nodos
   - No clickeado
     - Ubicación
     - Nombre dueño
