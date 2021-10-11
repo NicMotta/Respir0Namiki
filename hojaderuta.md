@@ -1,7 +1,7 @@
 # Hoja de ruta - desarrollo web - entorno digital
 ### Nic Motta
 
-- Lavado de cara a pagina MURU7.8 
+- Lavado de cara a pagina MURU 7.8 
 - Iconos para menú
   - Cruz - Rosa de los vientos (N, S, E, W) 
     - Tienda
@@ -20,16 +20,16 @@
     - MURU7.8 
       - Quienes somos
 - Ingresar desde QR
-- *Mobile First (COMPLETO)*
-- *Navegación 2D + info (COMPLETO)*
+- **Mobile First (COMPLETO)**
+- **Navegación 2D + info (COMPLETO)**
 - Incorporar MQTT
 - Atmosfera 
   - Referencias de contaminación
     - Valores bajos, medios y altos 
 - Nodos
   - No clickeado
-    - *Ubicación (COMPLETO)*
-    - *Nombre dueño (COMPLETO)*
+    - **Ubicación (COMPLETO)**
+    - **Nombre dueño (COMPLETO)**
     - Data sensor
     - Fecha del ultimo dato recibido
   - Click
