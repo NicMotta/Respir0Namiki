@@ -19,7 +19,6 @@ let tamañoTexto = 150;
 // Configuracion de animaciones
 let puntito;
 
-
 // Definir cada objeto con su informacion correspondiente, posicion en X, Y, offset, texto, color, etc
 var nicMotta = {
               nombre:"Nic Motta", 
@@ -27,10 +26,11 @@ var nicMotta = {
               provincia:"Buenos Aires", 
               pais:"Argentina",
               coordenadas: "",
-              valorCo2: "",
+              valorCo2: 400,
               texto: "",
               posicionX: 0,
               posicionY: 0,
+              valorMap: 0,
               };
 
 var claudiaValente = {
@@ -38,7 +38,7 @@ var claudiaValente = {
                 ciudad:"Jose C. Paz", 
                 provincia:"Buenos Aires", 
                 pais:"Argentina",
-                coordenadas: "",
+                coordenadas: 500,
                 posicionX: 100,
                 posicionY: 200,
                 };
@@ -48,7 +48,7 @@ var leandroBarbeito = {
                 ciudad:"Lomas del Mirador", 
                 provincia:"Buenos Aires", 
                 pais:"Argentina",
-                coordenadas: "",
+                coordenadas: 280,
                 posicionX: 500,
                 posicionY: 500,
                 };
@@ -59,7 +59,7 @@ var lupitaChavez = {
                 provincia:"Mexico", 
                 pais:"Mexico",
                 coordenadas: "",
-                valorCo2: "",
+                valorCo2: 150,
                 texto: "",
                 posicionX: -500,
                 posicionY: 600,
@@ -71,30 +71,48 @@ function setup() {
   by = height / 2.0;
   rectMode(CENTER);
   strokeWeight(2);
-  textLeading(13); // Espacio entre lineas de texto
+  textLeading(18); // Espacio entre lineas de texto
+  textFont("MuseoModerno");
+  textSize(15)
  
   // Modelos de cada persona
   nicMottaModel = createSprite(100, 100);
-  nicMottaModel.addAnimation('normal', 'assets/modelo2.gif');
+  nicMottaModel.addAnimation('normal', 'assets/modeloAchira.gif');
   nicMottaModel.scale = 0.2;
   nicMottaModel.mouseActive = true;
 
   claudiaValenteModel = createSprite(100, 100);
-  claudiaValenteModel.addAnimation('normal', 'assets/modelo2.gif');
-  claudiaValenteModel.scale = 0.2;
+  claudiaValenteModel.addAnimation('normal', 'assets/modeloSemilla.gif');
+  claudiaValenteModel.scale = 0.5;
   claudiaValenteModel.mouseActive = true;
+
+  setInterval(numeroRandom, 1000);
 
 }
 
 function draw() {
     background(40);
-    noStroke()
+    stroke(80);
+    noFill();
+    ellipse(nicMotta.posicionX + bx, nicMotta.posicionY + by, 500);
+    ellipse(claudiaValente.posicionX + bx, claudiaValente.posicionY + by, 500);
+
+    noStroke();
+    
+
+
+    // Colores semaforo para CO2
+    nicMotta.valorMap = map(nicMotta.valorCo2, 400, 10000, 0, 255);
+    fill(nicMotta.valorMap, 120, 0, 100);
+    ellipse(nicMotta.posicionX + bx, nicMotta.posicionY + by, 100);
+    //rect(nicMotta.posicionX + bx, nicMotta.posicionY + by, 100);
+
+
+
     fill(200);
-
-
     // Nodos dibujados
     //ellipse(nicMotta.posicionX + bx, nicMotta.posicionY + by, boxSize);
-    text(nicMotta.nombre + "\n" + nicMotta.ciudad + "\n" + nicMotta.provincia + "\n" + nicMotta.pais,
+    text(nicMotta.nombre + "\n" + nicMotta.ciudad + "\n" + nicMotta.provincia + "\n" + nicMotta.pais + "\n" + "Valor Co2: " + nicMotta.valorCo2,
          nicMotta.posicionX + bx + xTexto, nicMotta.posicionY + by + yTexto,
          tamañoTexto, tamañoTexto
          );
@@ -133,6 +151,8 @@ function mousePressed() {
     xOffset = mouseX - bx;
     yOffset = mouseY - by;
     cursor(MOVE);
+
+    
 }
 
 
@@ -150,9 +170,31 @@ function mouseReleased() {
 
 function keyPressed(){  // Reset / poner un boton para volver al centro con algun tipo de delay, mas fluido
   resetMap()
+ 
 }
 
 function resetMap(){
+
   bx = width / 2.0;
   by = height / 2.0;
+}
+
+function numeroRandom(){
+  nicMotta.valorCo2 = parseInt(random(400, 10000));
+}
+
+let mostrarbool = false;
+function mostrarInfo(){
+  var mostrar = document.getElementById('info');
+
+  mostrarbool = !mostrarbool;
+
+  if (mostrarbool == true) {
+    mostrar.style.visibility = "hidden";
+  }
+
+  if (mostrarbool == false) {
+    mostrar.style.visibility = "visible";
+  }
+   
 }
