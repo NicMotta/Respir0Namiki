@@ -23,7 +23,7 @@
 
 - [ ] Ingresar desde QR
 - [ ] Mobile First
-- [ ] Navegación 2D + info
+- [x] Navegación 2D + info
 - [ ] Atmosfera 
   - Referencias de contaminación
     - Valores bajos, medios y altos 
