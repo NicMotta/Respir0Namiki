@@ -1,0 +1,45 @@
+# Lista TO DO para Respir0 Namiki
+## Web - Entorno digital
+
+- [ ] Lavado de cara a pagina MURU7.8
+- [ ] Iconos para menú
+  - [ ] - [ ] Cruz - rosa de los vientos (N, S, E, W) 
+    - [ ] Tienda
+    - [ ] Mapa general (tipo Google Maps para ubicacion geográfica)
+    - [ ] Visualización de datos
+      - Gráfico de cada sensor en tiempo y valor
+    - [ ] Mapa conceptual
+      -  Ideas base
+      -  Descripción de la atmosfera
+      -  Génesis de cada nodo
+          -  Origen
+          -  Sensado
+     - [ ] Instructivo de armado
+        - Armado 
+        - Desarmado - paso a paso
+    - [ ] MURU7.8 
+      - Quienes somos
+- 
+
+- [ ] Ingresar desde QR
+- [ ] Mobile First
+- [ ] Navegación 2D + info
+- [ ] Atmosfera 
+  - Referencias de contaminación
+    - Valores bajos, medios y altos 
+- [ ] Nodos
+  - No clickeado
+    - Ubicación
+    - Nombre dueño
+    - Data sensor
+    - Fecha del ultimo dato recibido
+  - Click
+    - Algo que marque al individuo
+    - Texto
+    - Base de datos
+    - "Activismo ciudadano"
+    - Pop-up
+    - Preguntar:
+      - "¿Por qué decide ingresar a Namiki?" 
+      - "¿Cual es tu relacion con la atmosfera?" 
+      - "¿Que te trae por aqui?"
