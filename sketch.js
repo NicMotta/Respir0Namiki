@@ -16,6 +16,13 @@ let xTexto = 130;
 let yTexto = 40;
 let tamañoTexto = 150;
 
+// Texto inicial - pregunta
+let textoInicial = "¿Esto es una pregunta? Esto es una pregunta.";
+
+// Footer
+let footer = "MURU 7.8 | Respir0 Namiki | v 0.1.0 | 2021";
+
+
 // Definir cada objeto con su informacion correspondiente, posicion en X, Y, offset, texto, color, etc
 var nicMotta = {
               nombre:"Nic Motta", 
@@ -25,8 +32,8 @@ var nicMotta = {
               coordenadas: "",
               valorCo2: 400,
               texto: "",
-              posicionX: 0,
-              posicionY: 0,
+              posicionX: -200,
+              posicionY: -300,
               valorMap: 0,
               };
 
@@ -70,7 +77,8 @@ function setup() {
   strokeWeight(2);
   textLeading(18); // Espacio entre lineas de texto
   textFont("MuseoModerno");
-  textSize(15)
+  
+  textAlign(CENTER);
  
   // Modelos de cada persona
   nicMottaModel = createSprite(100, 100);
@@ -88,13 +96,16 @@ function setup() {
 }
 
 function draw() {
-    background(40);
+    background(10);
     stroke(80);
     noFill();
     ellipse(nicMotta.posicionX + nuevoX, nicMotta.posicionY + nuevoY, 500);
     ellipse(claudiaValente.posicionX + nuevoX, claudiaValente.posicionY + nuevoY, 500);
 
     noStroke();
+
+    // Centro de espacio virtual - pregunta
+    text(textoInicial, nuevoX, nuevoY, tamañoTexto, tamañoTexto)
     
 
 
@@ -107,7 +118,25 @@ function draw() {
 
 
     fill(200);
+
+    // Footer informacion MURU 7.8
+    textStyle(NORMAL);
+    textSize(12);
+    text(footer, windowWidth / 2, windowHeight - 10);
+
+
+
+    // Centro de espacio virtual - pregunta
+    textStyle(BOLD);
+    textSize(18)
+    text(textoInicial, nuevoX, nuevoY, tamañoTexto + 300, tamañoTexto)
+
+    
+
+
     // Nodos dibujados
+    textStyle(NORMAL)
+    textSize(15)
     //ellipse(nicMotta.posicionX + nuevoX, nicMotta.posicionY + nuevoY, boxSize);
     text(nicMotta.nombre + "\n" + nicMotta.ciudad + "\n" + nicMotta.provincia + "\n" + nicMotta.pais + "\n" + "Valor Co2: " + nicMotta.valorCo2,
          nicMotta.posicionX + nuevoX + xTexto, nicMotta.posicionY + nuevoY + yTexto,
@@ -180,18 +209,19 @@ function numeroRandom(){
   nicMotta.valorCo2 = parseInt(random(400, 10000));
 }
 
-let mostrarbool = false;
-function mostrarInfo(){
-  var mostrar = document.getElementnuevoYId('info');
+let estadoMenu = true;
+function mostrarMenu(){
+  var menuRosa = document.getElementById('menuRosa');
 
-  mostrarbool = !mostrarbool;
+  estadoMenu = !estadoMenu;
 
-  if (mostrarbool == true) {
-    mostrar.style.visibility = "hidden";
+  if (estadoMenu == true) {
+    
   }
 
-  if (mostrarbool == false) {
-    mostrar.style.visibility = "visible";
+  if (estadoMenu == false) {
+    menuRosa.style.visibility = "visible";
   }
+  else { menuRosa.style.visibility = "hidden"; }
    
 }

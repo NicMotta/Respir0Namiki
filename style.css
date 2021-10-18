@@ -2,3 +2,7 @@ canvas {
     display: block;
     overscroll-behavior-y: contain;
   }
+
+  #menuRosa {
+    visibility: hidden;
+  }
