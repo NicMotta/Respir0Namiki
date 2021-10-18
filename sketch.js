@@ -4,8 +4,8 @@
 // MURU7.8
 
 // Configuracion navegacion nodos
-let bx;
-let by;
+let nuevoX;
+let nuevoY;
 let boxSize = 30;
 let xOffset = 0.0;
 let yOffset = 0.0;
@@ -15,9 +15,6 @@ let apretado = false;
 let xTexto = 130;
 let yTexto = 40;
 let tamañoTexto = 150;
-
-// Configuracion de animaciones
-let puntito;
 
 // Definir cada objeto con su informacion correspondiente, posicion en X, Y, offset, texto, color, etc
 var nicMotta = {
@@ -55,8 +52,8 @@ var leandroBarbeito = {
 
 var lupitaChavez = {
                 nombre:"Lupita Chavez", 
-                ciudad:"Mexico", 
-                provincia:"Mexico", 
+                ciudad:"Tepic", 
+                provincia:"Nayarit", 
                 pais:"Mexico",
                 coordenadas: "",
                 valorCo2: 150,
@@ -67,8 +64,8 @@ var lupitaChavez = {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  bx = width / 2.0;
-  by = height / 2.0;
+  nuevoX = width / 2.0;
+  nuevoY = height / 2.0;
   rectMode(CENTER);
   strokeWeight(2);
   textLeading(18); // Espacio entre lineas de texto
@@ -94,8 +91,8 @@ function draw() {
     background(40);
     stroke(80);
     noFill();
-    ellipse(nicMotta.posicionX + bx, nicMotta.posicionY + by, 500);
-    ellipse(claudiaValente.posicionX + bx, claudiaValente.posicionY + by, 500);
+    ellipse(nicMotta.posicionX + nuevoX, nicMotta.posicionY + nuevoY, 500);
+    ellipse(claudiaValente.posicionX + nuevoX, claudiaValente.posicionY + nuevoY, 500);
 
     noStroke();
     
@@ -104,39 +101,39 @@ function draw() {
     // Colores semaforo para CO2
     nicMotta.valorMap = map(nicMotta.valorCo2, 400, 10000, 0, 255);
     fill(nicMotta.valorMap, 120, 0, 100);
-    ellipse(nicMotta.posicionX + bx, nicMotta.posicionY + by, 100);
-    //rect(nicMotta.posicionX + bx, nicMotta.posicionY + by, 100);
+    ellipse(nicMotta.posicionX + nuevoX, nicMotta.posicionY + nuevoY, 100);
+    //rect(nicMotta.posicionX + nuevoX, nicMotta.posicionY + nuevoY, 100);
 
 
 
     fill(200);
     // Nodos dibujados
-    //ellipse(nicMotta.posicionX + bx, nicMotta.posicionY + by, boxSize);
+    //ellipse(nicMotta.posicionX + nuevoX, nicMotta.posicionY + nuevoY, boxSize);
     text(nicMotta.nombre + "\n" + nicMotta.ciudad + "\n" + nicMotta.provincia + "\n" + nicMotta.pais + "\n" + "Valor Co2: " + nicMotta.valorCo2,
-         nicMotta.posicionX + bx + xTexto, nicMotta.posicionY + by + yTexto,
+         nicMotta.posicionX + nuevoX + xTexto, nicMotta.posicionY + nuevoY + yTexto,
          tamañoTexto, tamañoTexto
          );
     //line(nicMotta.posicionX, nicMotta.posicionY, claudiaValente.posicionX, nicMotta.posicionY);
 
-    text(claudiaValente.nombre + "\n" + claudiaValente.ciudad + "\n" + claudiaValente.provincia + "\n" + claudiaValente.pais, claudiaValente.posicionX + bx + xTexto, claudiaValente.posicionY + by + yTexto, tamañoTexto, tamañoTexto)
+    text(claudiaValente.nombre + "\n" + claudiaValente.ciudad + "\n" + claudiaValente.provincia + "\n" + claudiaValente.pais, claudiaValente.posicionX + nuevoX + xTexto, claudiaValente.posicionY + nuevoY + yTexto, tamañoTexto, tamañoTexto)
 
-    ellipse(leandroBarbeito.posicionX + bx, leandroBarbeito.posicionY + by, boxSize);
-    text(leandroBarbeito.nombre + "\n" + leandroBarbeito.ciudad + "\n" + leandroBarbeito.provincia + "\n" + leandroBarbeito.pais, leandroBarbeito.posicionX + bx + xTexto, leandroBarbeito.posicionY + by + yTexto, tamañoTexto, tamañoTexto)
+    ellipse(leandroBarbeito.posicionX + nuevoX, leandroBarbeito.posicionY + nuevoY, boxSize);
+    text(leandroBarbeito.nombre + "\n" + leandroBarbeito.ciudad + "\n" + leandroBarbeito.provincia + "\n" + leandroBarbeito.pais, leandroBarbeito.posicionX + nuevoX + xTexto, leandroBarbeito.posicionY + nuevoY + yTexto, tamañoTexto, tamañoTexto)
 
-    ellipse(lupitaChavez.posicionX + bx, lupitaChavez.posicionY + by, boxSize);
-    text(lupitaChavez.nombre + "\n" + lupitaChavez.ciudad + "\n" + lupitaChavez.provincia + "\n" + lupitaChavez.pais, lupitaChavez.posicionX + bx + xTexto, lupitaChavez.posicionY + by + yTexto, tamañoTexto, tamañoTexto)
+    ellipse(lupitaChavez.posicionX + nuevoX, lupitaChavez.posicionY + nuevoY, boxSize);
+    text(lupitaChavez.nombre + "\n" + lupitaChavez.ciudad + "\n" + lupitaChavez.provincia + "\n" + lupitaChavez.pais, lupitaChavez.posicionX + nuevoX + xTexto, lupitaChavez.posicionY + nuevoY + yTexto, tamañoTexto, tamañoTexto)
 
 
-    nicMottaModel.position.x = nicMotta.posicionX + bx;
-    nicMottaModel.position.y = nicMotta.posicionY + by;
+    nicMottaModel.position.x = nicMotta.posicionX + nuevoX;
+    nicMottaModel.position.y = nicMotta.posicionY + nuevoY;
 
     if(nicMottaModel.mouseIsPressed){
       nicMottaModel.rotation-= 10;
       // Abrir pop-up con el texto de cara persona
     }
 
-    claudiaValenteModel.position.x = claudiaValente.posicionX + bx;
-    claudiaValenteModel.position.y = claudiaValente.posicionY + by;
+    claudiaValenteModel.position.x = claudiaValente.posicionX + nuevoX;
+    claudiaValenteModel.position.y = claudiaValente.posicionY + nuevoY;
 
     if(claudiaValenteModel.mouseIsPressed){
       claudiaValenteModel.rotation-= 10;
@@ -148,8 +145,8 @@ function draw() {
 
 function mousePressed() {
     apretado = true;
-    xOffset = mouseX - bx;
-    yOffset = mouseY - by;
+    xOffset = mouseX - nuevoX;
+    yOffset = mouseY - nuevoY;
     cursor(MOVE);
 
     
@@ -158,8 +155,8 @@ function mousePressed() {
 
 function mouseDragged() {
     if (apretado) {
-     bx = mouseX - xOffset;
-     by = mouseY - yOffset;
+     nuevoX = mouseX - xOffset;
+     nuevoY = mouseY - yOffset;
     }
 }
 
@@ -169,14 +166,14 @@ function mouseReleased() {
 }
 
 function keyPressed(){  // Reset / poner un boton para volver al centro con algun tipo de delay, mas fluido
-  resetMap()
+  //resetMap()
  
 }
 
 function resetMap(){
 
-  bx = width / 2.0;
-  by = height / 2.0;
+  nuevoX = width / 2.0;
+  nuevoY = height / 2.0;
 }
 
 function numeroRandom(){
@@ -185,7 +182,7 @@ function numeroRandom(){
 
 let mostrarbool = false;
 function mostrarInfo(){
-  var mostrar = document.getElementById('info');
+  var mostrar = document.getElementnuevoYId('info');
 
   mostrarbool = !mostrarbool;
 
