@@ -129,7 +129,7 @@ function draw() {
     // Centro de espacio virtual - pregunta
     textStyle(BOLD);
     textSize(18)
-    text(textoInicial, nuevoX, nuevoY, tamañoTexto + 300, tamañoTexto)
+    text(textoInicial, nuevoX, nuevoY, tamañoTexto + 180, tamañoTexto)
 
     
 
