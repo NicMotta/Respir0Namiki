@@ -93,7 +93,47 @@ function setup() {
 
   setInterval(numeroRandom, 1000);
 
-}
+
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyB72EJgyU1K8SAuNPgRtoaOJywraSFNByY",
+      authDomain: "respir0-namiki.firebaseapp.com",
+      databaseURL: "https://respir0-namiki-default-rtdb.firebaseio.com",
+      projectId: "respir0-namiki",
+      storageBucket: "",
+      messagingSenderId: ""
+  }
+    firebase.initializeApp(config); 
+    database = firebase.database();
+    
+    var ref = database.ref('usuarios');
+    ref.on('value', gotData, errData);
+  
+  }
+  
+  function gotData (data) {
+      //console.log(data.val());
+    var usuarios = data.val();
+      var keys = Object.keys(usuarios);
+      //console.log(keys);
+    
+    for (var i = 0; i < keys.length; i++) {
+      var nombres = keys[i];
+        var co2 = usuarios[nombres].nombre;
+        //console.log(nombres + " / " + co2);	
+          
+      }
+    console.log(usuarios[keys[2]].co2);
+    nicMotta.valorCo2 = usuarios[keys[2]].co2;
+    console.log(nicMotta.valorCo2);
+  }
+  
+  function errData(err) {
+    console.log('Error!');
+      console.log(err);
+  }
+
+
 
 function draw() {
     background(10);
@@ -206,7 +246,7 @@ function resetMap(){
 }
 
 function numeroRandom(){
-  nicMotta.valorCo2 = parseInt(random(400, 10000));
+  //nicMotta.valorCo2 = parseInt(random(400, 10000));
 }
 
 let estadoMenu = true;
