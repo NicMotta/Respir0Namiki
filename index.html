@@ -22,23 +22,78 @@
     <title>Respir0 Namiki</title>
 </head>
 
-<body style="font-family: 'MuseoModerno', cursive;">
- 
-  <div class="absolute bg-gray-600 m-3 p-2 rounded-full w-16">
-    <a href="#" onclick="mostrarMenu()">
-      <img src="assets/rosavientos.svg" alt="">
-    </a>
-  </div>
+<body style="font-family: 'MuseoModerno', cursive;" class="bg-black">
 
-  <div class="absolute bg-gray-600 mt-20 m-3 p-2 rounded-full w-16">
+  <div class="absolute bg-gray-500 m-2 p-1 rounded-full w-12 hover:bg-gray-400">
     <a href="#" onclick="resetMap()">
       <img src="assets/center.svg" alt="Centrar mapa">
     </a>
   </div>
 
-  <div id="menuRosa" class="absolute text-white text-center mx-4 my-24">
-    <h1>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi, doloremque earum autem adipisci fugit suscipit reiciendis maiores, exercitationem quo error facere repellendus, ab ut modi dolore neque ea et laborum.</h1>
+
+  <div id="menuRosa" class="absolute w-1/2">
+    
   </div>
+
+
+
+
+
+
+
+
+  <div id="circularMenu" class="circular-menu mb-3">
+
+    <a class="floating-btn hover:bg-gray-400" onclick="document.getElementById('circularMenu').classList.toggle('active');">
+      <i class="fa fa-plus">
+        <img src="assets/rosavientos.svg" alt="">
+      </i>
+    </a>
+  
+    <menu class="items-wrapper">
+      <a href="#" class="menu-item fa fa-facebook">
+        <img src="/assets/menu-iconos/M.gif" alt="">
+      </a>
+      <a href="#" class="menu-item fa fa-twitter">
+        <img src="/assets/menu-iconos/Semilla.gif" alt="">
+      </a>
+      <a href="#" class="menu-item fa fa-google-plus">
+        <img src="/assets/menu-iconos/T.gif" alt="">
+      </a>
+      <a href="#" class="menu-item fa fa-linkedin">
+        <img src="/assets/menu-iconos/cristal1.gif" alt="">
+      </a>
+    </menu>
+  
+  </div>
+  
+  
+  <div id="circularMenu1" class="circular-menu circular-menu-left mb-3">
+  
+    <a class="floating-btn" onclick="document.getElementById('circularMenu1').classList.toggle('active');">
+      <i class="fa fa-bars"></i>
+      <img src="assets/rosavientos.svg" alt="">
+    </a>
+  
+    <menu class="items-wrapper">
+      <a href="acercade.html" class="menu-item fa fa-home">
+        <img src="/assets/menu-iconos/AT.gif" alt="">
+      </a>
+      <a href="#" class="menu-item fa fa-user">
+        <img src="/assets/menu-iconos/BrusBrus.gif" alt="">
+      </a>
+      <a href="#" class="menu-item fa fa-pie-chart">
+        <img src="/assets/menu-iconos/Gus.gif" alt="">
+      </a>
+      <a href="#" class="menu-item fa fa-cog">
+        <img src="/assets/menu-iconos/P.gif" alt="">
+      </a>
+    </menu>
+  
+  </div>
+
+
+
   
 
   

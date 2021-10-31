@@ -22,7 +22,8 @@
 - Ingresar desde QR
 - **Mobile First (COMPLETO)**
 - **Navegación 2D + info (COMPLETO)**
-- Incorporar MQTT
+- **Incorporar MQTT (CANCELADO)**
+- **Incorporar base de datos - FIREBASE (COMPLETO)**
 - Atmosfera 
   - Referencias de contaminación
     - Valores bajos, medios y altos 

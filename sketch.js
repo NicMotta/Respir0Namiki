@@ -20,7 +20,7 @@ let tamañoTexto = 150;
 let textoInicial = "¿Esto es una pregunta? Esto es una pregunta.";
 
 // Footer
-let footer = "MURU 7.8 | Respir0 Namiki | v 0.1.0 | 2021";
+let footer = "MURU 7.8 | Respir0 Namiki | v 1.0 | 2021";
 
 
 // Definir cada objeto con su informacion correspondiente, posicion en X, Y, offset, texto, color, etc
@@ -69,6 +69,14 @@ var lupitaChavez = {
                 posicionY: 600,
                 };
 
+
+
+let fondoSemilla;
+let menuUno, menuDos, menuTres, menuCuatro, menuCinco, menuSeis, menuSiete, menuOcho;
+function preload() {
+ fondoSemilla = loadImage("./assets/fondoSemilla.png");
+}
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
   nuevoX = width / 2.0;
@@ -77,6 +85,7 @@ function setup() {
   strokeWeight(2);
   textLeading(18); // Espacio entre lineas de texto
   textFont("MuseoModerno");
+  imageMode(CENTER);
   
   textAlign(CENTER);
  
@@ -90,8 +99,6 @@ function setup() {
   claudiaValenteModel.addAnimation('normal', 'assets/modeloSemilla.gif');
   claudiaValenteModel.scale = 0.5;
   claudiaValenteModel.mouseActive = true;
-
-  setInterval(numeroRandom, 1000);
 
 
     // Initialize Firebase
@@ -108,6 +115,11 @@ function setup() {
     
     var ref = database.ref('usuarios');
     ref.on('value', gotData, errData);
+
+  // 
+
+  
+
   
   }
   
@@ -123,8 +135,8 @@ function setup() {
         //console.log(nombres + " / " + co2);	
           
       }
-    console.log(usuarios[keys[2]].co2);
-    nicMotta.valorCo2 = usuarios[keys[2]].co2;
+    console.log(usuarios[keys[4]].co2);
+    nicMotta.valorCo2 = usuarios[keys[3]].co2;
     console.log(nicMotta.valorCo2);
   }
   
@@ -133,30 +145,36 @@ function setup() {
       console.log(err);
   }
 
+  function windowResized() {
+    resizeCanvas(windowWidth, windowHeight);
+  }
 
 
 function draw() {
-    background(10);
-    stroke(80);
+    background(0);
     noFill();
+    noStroke();
+
+    // FONDOS MODELOS
+    image(fondoSemilla, nicMotta.posicionX + nuevoX, nicMotta.posicionY + nuevoY);
+    image(fondoSemilla, claudiaValente.posicionX + nuevoX, claudiaValente.posicionY + nuevoY);
+    
+    // CIRCULOS SEMAFOROS
     ellipse(nicMotta.posicionX + nuevoX, nicMotta.posicionY + nuevoY, 500);
     ellipse(claudiaValente.posicionX + nuevoX, claudiaValente.posicionY + nuevoY, 500);
 
-    noStroke();
 
     // Centro de espacio virtual - pregunta
-    text(textoInicial, nuevoX, nuevoY, tamañoTexto, tamañoTexto)
-    
-
+    text(textoInicial, nuevoX, nuevoY, tamañoTexto, tamañoTexto);
+  
 
     // Colores semaforo para CO2
     nicMotta.valorMap = map(nicMotta.valorCo2, 400, 10000, 0, 255);
     fill(nicMotta.valorMap, 120, 0, 100);
     ellipse(nicMotta.posicionX + nuevoX, nicMotta.posicionY + nuevoY, 100);
-    //rect(nicMotta.posicionX + nuevoX, nicMotta.posicionY + nuevoY, 100);
 
 
-
+    // Color de los textos
     fill(200);
 
     // Footer informacion MURU 7.8
@@ -165,24 +183,20 @@ function draw() {
     text(footer, windowWidth / 2, windowHeight - 10);
 
 
-
     // Centro de espacio virtual - pregunta
     textStyle(BOLD);
     textSize(18)
     text(textoInicial, nuevoX, nuevoY, tamañoTexto + 180, tamañoTexto)
 
-    
-
 
     // Nodos dibujados
     textStyle(NORMAL)
     textSize(15)
-    //ellipse(nicMotta.posicionX + nuevoX, nicMotta.posicionY + nuevoY, boxSize);
+
     text(nicMotta.nombre + "\n" + nicMotta.ciudad + "\n" + nicMotta.provincia + "\n" + nicMotta.pais + "\n" + "Valor Co2: " + nicMotta.valorCo2,
          nicMotta.posicionX + nuevoX + xTexto, nicMotta.posicionY + nuevoY + yTexto,
          tamañoTexto, tamañoTexto
          );
-    //line(nicMotta.posicionX, nicMotta.posicionY, claudiaValente.posicionX, nicMotta.posicionY);
 
     text(claudiaValente.nombre + "\n" + claudiaValente.ciudad + "\n" + claudiaValente.provincia + "\n" + claudiaValente.pais, claudiaValente.posicionX + nuevoX + xTexto, claudiaValente.posicionY + nuevoY + yTexto, tamañoTexto, tamañoTexto)
 
@@ -210,6 +224,9 @@ function draw() {
     }
 
     drawSprites();
+   
+
+
 }
 
 function mousePressed() {
@@ -243,10 +260,6 @@ function resetMap(){
 
   nuevoX = width / 2.0;
   nuevoY = height / 2.0;
-}
-
-function numeroRandom(){
-  //nicMotta.valorCo2 = parseInt(random(400, 10000));
 }
 
 let estadoMenu = true;
