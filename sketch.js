@@ -17,7 +17,7 @@ let yTexto = 40;
 let tamañoTexto = 150;
 
 // Texto inicial - pregunta
-let textoInicial = "¿Esto es una pregunta? Esto es una pregunta.";
+let textoInicial = "Ella nos acaricia, nos conecta y nos mantiene vivos.";
 
 // Footer
 let footer = "MURU 7.8 | Respir0 Namiki | v 1.0 | 2021";
@@ -30,7 +30,7 @@ var nicMotta = {
               provincia:"Buenos Aires", 
               pais:"Argentina",
               coordenadas: "",
-              valorCo2: 400,
+              valorCo2: 1124,
               texto: "",
               posicionX: -200,
               posicionY: -300,
@@ -42,8 +42,9 @@ var claudiaValente = {
                 ciudad:"Jose C. Paz", 
                 provincia:"Buenos Aires", 
                 pais:"Argentina",
-                coordenadas: 500,
-                posicionX: 100,
+                coordenadas: "",
+                valorCo2: 480,
+                posicionX: -1000,
                 posicionY: 200,
                 };
 
@@ -52,8 +53,9 @@ var leandroBarbeito = {
                 ciudad:"Lomas del Mirador", 
                 provincia:"Buenos Aires", 
                 pais:"Argentina",
-                coordenadas: 280,
-                posicionX: 500,
+                coordenadas: "",
+                valorCo2: 665,
+                posicionX: 300,
                 posicionY: 500,
                 };
 
@@ -63,12 +65,23 @@ var lupitaChavez = {
                 provincia:"Nayarit", 
                 pais:"Mexico",
                 coordenadas: "",
-                valorCo2: 150,
+                valorCo2: 1200,
                 texto: "",
-                posicionX: -500,
-                posicionY: 600,
+                posicionX: -1000,
+                posicionY: -1000,
                 };
 
+                var bienalHabana = {
+                  nombre:"Bienal de La Habana", 
+                  ciudad:"", 
+                  provincia:"La Habana", 
+                  pais:"Cuba",
+                  coordenadas: "",
+                  valorCo2: 567,
+                  texto: "",
+                  posicionX: -500,
+                  posicionY: -1500,
+                  };
 
 
 let fondoSemilla;
@@ -96,9 +109,27 @@ function setup() {
   nicMottaModel.mouseActive = true;
 
   claudiaValenteModel = createSprite(100, 100);
-  claudiaValenteModel.addAnimation('normal', 'assets/modeloSemilla.gif');
-  claudiaValenteModel.scale = 0.5;
+  claudiaValenteModel.addAnimation('normal', 'assets/modeloAchira.gif');
+  claudiaValenteModel.scale = 0.2;
   claudiaValenteModel.mouseActive = true;
+
+  // Modelos de cada persona
+  lupitaChavezModel = createSprite(100, 100);
+  lupitaChavezModel.addAnimation('normal', 'assets/modeloAchira.gif');
+  lupitaChavezModel.scale = 0.2;
+  lupitaChavezModel.mouseActive = true;
+
+  // Modelos de cada persona
+  leandroBarbeitoModel = createSprite(100, 100);
+  leandroBarbeitoModel.addAnimation('normal', 'assets/modeloAchira.gif');
+  leandroBarbeitoModel.scale = 0.2;
+  leandroBarbeitoModel.mouseActive = true;
+
+  // Modelos de cada persona
+  bienalHabanaModel = createSprite(100, 100);
+  bienalHabanaModel.addAnimation('normal', 'assets/modeloAchira.gif');
+  bienalHabanaModel.scale = 0.2;
+  bienalHabanaModel.mouseActive = true;
 
 
     // Initialize Firebase
@@ -158,10 +189,16 @@ function draw() {
     // FONDOS MODELOS
     image(fondoSemilla, nicMotta.posicionX + nuevoX, nicMotta.posicionY + nuevoY);
     image(fondoSemilla, claudiaValente.posicionX + nuevoX, claudiaValente.posicionY + nuevoY);
+    image(fondoSemilla, leandroBarbeito.posicionX + nuevoX, leandroBarbeito.posicionY + nuevoY);
+    image(fondoSemilla, lupitaChavez.posicionX + nuevoX, lupitaChavez.posicionY + nuevoY);
+    image(fondoSemilla, bienalHabana.posicionX + nuevoX, bienalHabana.posicionY + nuevoY);
     
     // CIRCULOS SEMAFOROS
     ellipse(nicMotta.posicionX + nuevoX, nicMotta.posicionY + nuevoY, 500);
     ellipse(claudiaValente.posicionX + nuevoX, claudiaValente.posicionY + nuevoY, 500);
+    ellipse(leandroBarbeito.posicionX + nuevoX, leandroBarbeito.posicionY + nuevoY, 500);
+    ellipse(lupitaChavez.posicionX + nuevoX, lupitaChavez.posicionY + nuevoY, 500);
+    ellipse(bienalHabana.posicionX + nuevoX, bienalHabana.posicionY + nuevoY, 500);
 
 
     // Centro de espacio virtual - pregunta
@@ -172,6 +209,22 @@ function draw() {
     nicMotta.valorMap = map(nicMotta.valorCo2, 400, 10000, 0, 255);
     fill(nicMotta.valorMap, 120, 0, 100);
     ellipse(nicMotta.posicionX + nuevoX, nicMotta.posicionY + nuevoY, 100);
+
+    claudiaValente.valorMap = map(claudiaValente.valorCo2, 400, 10000, 0, 255);
+    fill(claudiaValente.valorMap, 120, 0, 100);
+    ellipse(claudiaValente.posicionX + nuevoX, claudiaValente.posicionY + nuevoY, 100);
+
+    leandroBarbeito.valorMap = map(leandroBarbeito.valorCo2, 400, 10000, 0, 255);
+    fill(leandroBarbeito.valorMap, 120, 0, 100);
+    ellipse(leandroBarbeito.posicionX + nuevoX, leandroBarbeito.posicionY + nuevoY, 100);
+
+    lupitaChavez.valorMap = map(lupitaChavez.valorCo2, 400, 10000, 0, 255);
+    fill(lupitaChavez.valorMap, 120, 0, 100);
+    ellipse(lupitaChavez.posicionX + nuevoX, lupitaChavez.posicionY + nuevoY, 100);
+
+    bienalHabana.valorMap = map(bienalHabana.valorCo2, 400, 10000, 0, 255);
+    fill(bienalHabana.valorMap, 120, 0, 100);
+    ellipse(bienalHabana.posicionX + nuevoX, bienalHabana.posicionY + nuevoY, 100);
 
 
     // Color de los textos
@@ -198,20 +251,30 @@ function draw() {
          tamañoTexto, tamañoTexto
          );
 
-    text(claudiaValente.nombre + "\n" + claudiaValente.ciudad + "\n" + claudiaValente.provincia + "\n" + claudiaValente.pais, claudiaValente.posicionX + nuevoX + xTexto, claudiaValente.posicionY + nuevoY + yTexto, tamañoTexto, tamañoTexto)
+    text(claudiaValente.nombre + "\n" + claudiaValente.ciudad + "\n" + claudiaValente.provincia + "\n" + claudiaValente.pais + "\n" + "Valor Co2: " + claudiaValente.valorCo2,
+         claudiaValente.posicionX + nuevoX + xTexto, claudiaValente.posicionY + nuevoY + yTexto,
+         tamañoTexto, tamañoTexto
+         );
 
-    ellipse(leandroBarbeito.posicionX + nuevoX, leandroBarbeito.posicionY + nuevoY, boxSize);
-    text(leandroBarbeito.nombre + "\n" + leandroBarbeito.ciudad + "\n" + leandroBarbeito.provincia + "\n" + leandroBarbeito.pais, leandroBarbeito.posicionX + nuevoX + xTexto, leandroBarbeito.posicionY + nuevoY + yTexto, tamañoTexto, tamañoTexto)
+    text(lupitaChavez.nombre + "\n" + lupitaChavez.ciudad + "\n" + lupitaChavez.provincia + "\n" + lupitaChavez.pais + "\n" + "Valor Co2: " + lupitaChavez.valorCo2,
+         lupitaChavez.posicionX + nuevoX + xTexto, lupitaChavez.posicionY + nuevoY + yTexto,
+         tamañoTexto, tamañoTexto
+         );
 
-    ellipse(lupitaChavez.posicionX + nuevoX, lupitaChavez.posicionY + nuevoY, boxSize);
-    text(lupitaChavez.nombre + "\n" + lupitaChavez.ciudad + "\n" + lupitaChavez.provincia + "\n" + lupitaChavez.pais, lupitaChavez.posicionX + nuevoX + xTexto, lupitaChavez.posicionY + nuevoY + yTexto, tamañoTexto, tamañoTexto)
+    text(leandroBarbeito.nombre + "\n" + leandroBarbeito.ciudad + "\n" + leandroBarbeito.provincia + "\n" + leandroBarbeito.pais + "\n" + "Valor Co2: " + leandroBarbeito.valorCo2,
+         leandroBarbeito.posicionX + nuevoX + xTexto, leandroBarbeito.posicionY + nuevoY + yTexto,
+         tamañoTexto, tamañoTexto
+         );
 
+    text(bienalHabana.nombre + "\n" + bienalHabana.ciudad + "\n" + bienalHabana.provincia + "\n" + bienalHabana.pais + "\n" + "Valor Co2: " + bienalHabana.valorCo2,
+         bienalHabana.posicionX + nuevoX + xTexto, bienalHabana.posicionY + nuevoY + yTexto,
+         tamañoTexto, tamañoTexto
+         );
 
     nicMottaModel.position.x = nicMotta.posicionX + nuevoX;
     nicMottaModel.position.y = nicMotta.posicionY + nuevoY;
 
     if(nicMottaModel.mouseIsPressed){
-      nicMottaModel.rotation-= 10;
       // Abrir pop-up con el texto de cara persona
     }
 
@@ -219,7 +282,27 @@ function draw() {
     claudiaValenteModel.position.y = claudiaValente.posicionY + nuevoY;
 
     if(claudiaValenteModel.mouseIsPressed){
-      claudiaValenteModel.rotation-= 10;
+      // Abrir pop-up con el texto de cara persona
+    }
+
+    leandroBarbeitoModel.position.x = leandroBarbeito.posicionX + nuevoX;
+    leandroBarbeitoModel.position.y = leandroBarbeito.posicionY + nuevoY;
+
+    if(leandroBarbeitoModel.mouseIsPressed){
+      // Abrir pop-up con el texto de cara persona
+    }
+
+    lupitaChavezModel.position.x = lupitaChavez.posicionX + nuevoX;
+    lupitaChavezModel.position.y = lupitaChavez.posicionY + nuevoY;
+
+    if(lupitaChavezModel.mouseIsPressed){
+      // Abrir pop-up con el texto de cara persona
+    }
+
+    bienalHabanaModel.position.x = bienalHabana.posicionX + nuevoX;
+    bienalHabanaModel.position.y = bienalHabana.posicionY + nuevoY;
+
+    if(bienalHabanaModel.mouseIsPressed){
       // Abrir pop-up con el texto de cara persona
     }
 
