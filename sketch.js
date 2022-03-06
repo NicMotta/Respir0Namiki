@@ -17,7 +17,7 @@ let yTexto = 40;
 let tamañoTexto = 150;
 
 // Texto inicial - pregunta
-let textoInicial = "Ella nos acaricia, nos conecta y nos mantiene vivos.";
+let textoInicial = "Ella nos acaricia, nos conecta y nos mantiene vivxs.";
 
 // Footer
 let footer = "MURU 7.8 | Respir0 Namiki | v 1.0 | 2021";
@@ -183,6 +183,10 @@ function setup() {
 
 function draw() {
     background(0);
+
+    
+
+
     noFill();
     noStroke();
 
@@ -240,6 +244,25 @@ function draw() {
     textStyle(BOLD);
     textSize(18)
     text(textoInicial, nuevoX, nuevoY, tamañoTexto + 180, tamañoTexto)
+
+
+        /// MEDIDOR CO2
+        let alfa = 200;
+        fill(200, alfa);
+        text("CO2", windowWidth * 0.90, windowHeight * 0.19);
+    
+        fill(200, 0, 0, alfa);
+        rect(windowWidth * 0.9, windowHeight * 0.36, 3, 400/3);
+        text("10000 ppm", windowWidth * 0.90, windowHeight * 0.23);
+    
+        fill(255, 200, 0, alfa)
+        rect(windowWidth * 0.9, windowHeight * 0.505, 3, 400/3);
+    
+        fill(100, 150, 0, alfa)
+        rect(windowWidth * 0.9, windowHeight * 0.65, 3, 400/3);
+        text("400 ppm", windowWidth * 0.9, windowHeight * 0.8);
+    
+        ///
 
 
     // Nodos dibujados
@@ -309,6 +332,9 @@ function draw() {
     drawSprites();
    
 
+
+
+    
 
 }
 
